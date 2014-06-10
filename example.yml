@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+  - name: Make src dir
+    file: path=/tmp/foo state=directory
+  - name: Make dest dir
+    file: path=/tmp/bar state=directory
+  - name: Make src
+    file: path=/tmp/foo/foo state=touch
+  - name: Make link
+    file: path=/tmp/bar/bar state=link src=../foo/foo
